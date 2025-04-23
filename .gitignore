@@ -1,0 +1,13 @@
+# Xcode
+.DS_Store
+*/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+build/
+DerivedData/
+*.swiftpm/configuration/
+
+# Archivos/carpetas temporales
+FinalProyectDAM2.xcodeproj/project.xcworkspace/xcshareddata/
+FinalProyectDAM2/Assets.xcassets/Icon.imageset/
+FinalProyectDAM2/Assets.xcassets/logogogoogog.imageset/

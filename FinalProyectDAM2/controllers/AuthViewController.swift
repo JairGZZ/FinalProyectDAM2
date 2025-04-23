@@ -94,12 +94,22 @@ class AuthViewController: UIViewController {
     }
     
     private func navigateToHomeScreen() {
-        // Ejemplo de navegación a pantalla principal
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let homeVC = storyboard.instantiateViewController(
-            withIdentifier: "HomeViewController"
-        ) as? HomeViewController {
-            navigationController?.pushViewController(homeVC, animated: true)
+        
+        guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else {
+            print("Error: No se encontró el UITabBarController")
+            return
         }
+        
+        // Selecciona el tab deseado (ej. índice 1)
+        tabBarController.selectedIndex = 1
+        
+        // Animación de transición
+        if let window = UIApplication.shared.windows.first {
+            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                window.rootViewController = tabBarController
+            }, completion: nil)
+        }
+    
     }
 }
