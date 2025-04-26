@@ -129,14 +129,17 @@ class RegisterViewController: UIViewController {
         }
         
         // Selecciona el tab deseado (ej. índice 1)
-        tabBarController.selectedIndex = 1
+        tabBarController.selectedIndex = 0
         
         // Animación de transición
-        if let window = UIApplication.shared.windows.first {
+        if let windowScene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+           let window = windowScene.windows.first {
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 window.rootViewController = tabBarController
             }, completion: nil)
         }
+
     
     }
     
